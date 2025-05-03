@@ -103,4 +103,4 @@ telegram-bot/
 
 ---
 
-Sinta-se à vontade para contribuir ou abrir issues!
+Este projeto foi desenvolvido exclusivamente para fins de avaliação técnica no processo seletivo da FURIA Esports.

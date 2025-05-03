@@ -1,12 +1,12 @@
 # Bot Telegram da FURIA
 
-Este projeto é um bot do Telegram para acompanhar os jogos e campeonatos da FURIA Esports. Ele permite que usuários personalizem preferências de jogos, recebam notificações e vejam informações sobre próximos campeonatos.
+Este projeto foi desenvolvido como parte de um processo seletivo para a FURIA Esports. O objetivo é demonstrar habilidades em Python, web scraping e organização de código para bots de Telegram.
+
+O bot permite que usuários acompanhem os campeonatos da FURIA, personalizem preferências de jogos e notificações, e recebam informações relevantes diretamente no Telegram.
 
 ## Requisitos
 
 - Python 3.9+
-- [Playwright](https://playwright.dev/python/) (instalado automaticamente pelo script)
-- [pip](https://pip.pypa.io/en/stable/)
 - Conta no Telegram para obter o token do bot
 
 ## Instalação e Execução
@@ -40,6 +40,22 @@ Este projeto é um bot do Telegram para acompanhar os jogos e campeonatos da FUR
    ```env
    TELEGRAM_BOT_TOKEN=seu_token_aqui
    ```
+
+## Como obter um token de bot do Telegram
+
+1. Abra o Telegram e procure pelo usuário @BotFather.
+2. Inicie uma conversa e envie o comando `/start`.
+3. Envie o comando `/newbot` e siga as instruções para escolher um nome e um username para seu bot.
+4. Ao final, o BotFather enviará uma mensagem com o token de acesso do seu bot, parecido com:
+   
+   `123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ`
+
+5. Copie esse token e coloque no arquivo `.env` conforme instruções acima:
+   ```env
+   TELEGRAM_BOT_TOKEN=seu_token_aqui
+   ```
+
+Nunca compartilhe seu token publicamente.
 
 ## Estrutura de Pastas
 

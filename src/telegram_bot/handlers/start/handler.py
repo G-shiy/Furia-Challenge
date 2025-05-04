@@ -27,9 +27,18 @@ Bem-vindo ao Bot da FURIA! 🐯
 
 Eu posso te ajudar a acompanhar seus jogos favoritos da FURIA.
 
-Use /personalize para escolher quais jogos e tipos de notificações você quer receber.
-Use /next_games ou /jogos para ver os próximos jogos.
-Use /help para ver todos os comandos disponíveis.""",
+Aqui estão os comandos disponíveis:
+
+/start - Inicia a conversa com o bot.
+/help - Mostra esta mensagem de ajuda.
+/personalize - Permite escolher quais jogos e notificações você quer receber.
+/next_games ou /jogos - Mostra os próximos jogos da FURIA para os jogos que você selecionou.
+/about ou /sobre - Mostra informações sobre a FURIA.
+/fanchat - Inicia o simulador de conversa de torcida (em breve!).
+/live - Mostra o status de jogos ao vivo (em breve!).
+/cancel - Cancela a operação atual (como a personalização).
+
+Use /personalize para começar!""",
         reply_markup=ReplyKeyboardRemove(),
         parse_mode='HTML'
     )

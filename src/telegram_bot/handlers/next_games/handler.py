@@ -16,11 +16,20 @@ async def next_games(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     # Try to retrieve preferences from the database first
     preferred_games, notification_prefs = await get_preferences_db(user_id)
     
+    # Fallback to memory store if not found in DB
     if preferred_games is None:
         preferences_store = context.bot_data.get('user_preferences_store', {})
         preferred_games, _ = get_preferences_memory(preferences_store, user_id)
         if preferred_games:
             logger.info(f"Falling back to memory store for user {user_id}'s preferences")
+
+    # Check if preferences exist
+    if preferred_games is None or not preferred_games:
+        await update.message.reply_text(
+            "Você precisa personalizar sua experiência primeiro! Use o comando /personalize para escolher seus jogos favoritos.",
+            reply_markup=ReplyKeyboardRemove()
+        )
+        return
 
     scraped_tournaments = await fetch_draft5()
 
@@ -36,8 +45,7 @@ async def next_games(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         tournament_str = f"- <b>{tournament.get('name', 'TBD')}</b> - {tournament.get('dates', 'TBD')} (<a href='{tournament.get('url', '')}'>Link</a>)"
         message_parts.append(tournament_str)
 
-    footer = "\n\nUse o comando /personalize para escolher os jogos que deseja acompanhar e receber notificações."
-    message = "\n".join(message_parts) + footer
+    message = "\n".join(message_parts)
 
     await update.message.reply_text(
         message,
